@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage>
         controller: _tabController,
         children: <Widget>[
           const ChatsPage(),
-          Container(color: Colors.red),
+          const StatusPage(),
           Container(color: Colors.blue),
         ],
       ),
