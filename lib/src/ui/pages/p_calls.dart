@@ -128,39 +128,46 @@ class CallsItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5.0),
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundImage: AssetImage(image),
-          radius: 30,
-        ),
-        title: Padding(
-          padding: const EdgeInsets.only(bottom: 5.0),
-          child: CustomText(
-            text: name,
-            color: WhatsAppColors.white,
-            fontWeight: FontWeight.normal,
-            fontSize: 20.0,
-          ),
-        ),
-        subtitle: Row(
-          children: <Widget>[
-            const Icon(
-              Icons.north_east,
-              size: 15,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          highlightColor: WhatsAppColors.white.withOpacity(0.2),
+          onTap: () {},
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundImage: AssetImage(image),
+              radius: 30,
+            ),
+            title: Padding(
+              padding: const EdgeInsets.only(bottom: 5.0),
+              child: CustomText(
+                text: name,
+                color: WhatsAppColors.white,
+                fontWeight: FontWeight.normal,
+                fontSize: 20.0,
+              ),
+            ),
+            subtitle: Row(
+              children: <Widget>[
+                const Icon(
+                  Icons.north_east,
+                  size: 15,
+                  color: WhatsAppColors.tabFocusedColor,
+                ),
+                const SizedBox(width: 5.0),
+                CustomText(
+                  text: date,
+                  color: WhatsAppColors.white.withOpacity(0.5),
+                  fontWeight: FontWeight.normal,
+                  fontSize: 15.0,
+                ),
+              ],
+            ),
+            trailing: const Icon(
+              Icons.call,
               color: WhatsAppColors.tabFocusedColor,
             ),
-            const SizedBox(width: 5.0),
-            CustomText(
-              text: date,
-              color: WhatsAppColors.white.withOpacity(0.5),
-              fontWeight: FontWeight.normal,
-              fontSize: 15.0,
-            ),
-          ],
-        ),
-        trailing: const Icon(
-          Icons.call,
-          color: WhatsAppColors.tabFocusedColor,
+          ),
         ),
       ),
     );
