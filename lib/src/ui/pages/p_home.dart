@@ -15,17 +15,20 @@ class _HomePageState extends State<HomePage>
   late TabController _tabController;
   IconData buttonIcon = Icons.message;
 
+  Map<int, IconData> selectedIcon = {
+    0: Icons.message,
+    1: Icons.camera_alt,
+    2: Icons.add_call,
+  };
+
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 3);
     _tabController.addListener(() {
       setState(() {
-        if (_tabController.index == 1) {
-          buttonIcon = Icons.camera_alt;
-        } else {
-          buttonIcon = Icons.message;
-        }
+        debugPrint('${_tabController.index}');
+        buttonIcon = selectedIcon[_tabController.index]!;
       });
     });
   }
@@ -43,10 +46,10 @@ class _HomePageState extends State<HomePage>
       appBar: _WhatsappAppBar(_tabController),
       body: TabBarView(
         controller: _tabController,
-        children: <Widget>[
-          const ChatsPage(),
-          const StatusPage(),
-          Container(color: Colors.blue),
+        children: const <Widget>[
+          ChatsPage(),
+          StatusPage(),
+          CallsPage(),
         ],
       ),
       floatingActionButton: FloatingActionButton(

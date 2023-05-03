@@ -4,7 +4,10 @@ import 'package:whatsapp_clone_ui/src/ui/routes/app_pages.dart';
 import 'package:whatsapp_clone_ui/src/ui/routes/app_routes.dart';
 import 'package:whatsapp_clone_ui/src/utils/injector.dart';
 
-void main() => runApp(const AppState());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const AppState());
+} 
 
 class AppState extends StatelessWidget {
   const AppState({super.key});
